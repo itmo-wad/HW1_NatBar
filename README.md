@@ -1,40 +1,34 @@
-## Frontend: creation of a static profile page about myself (HTML + CSS)
-### 1. Creation of HTML-file.
-Such tegs as `<html>, <head>, <body>, <h1>, <h2>, <div>, <blockquote>, <p>, <ul>, <li>` were used. I have written some info about my skills, experience and eduacation.
-### 2. The design of my profile page choice.
-Some style was applied. I have changed color, size, weight of the font, used GIF as background image and so on.
-### 3. Aplication of the stylesheet.
-Using the teg `<link>`: `<link rel="stylesheet" href="../static/css/styles.css">`.
+Overview
 
-## Backend: using Python Flask to serve the frontend (profile page)
-### 4. Installing a micro web framework Flask.
-The easiest thing ever - installing via `pip`.
-### 5. Serving static profile page.
-I have used `render_template` to serve my profile page at default (`/`) route.
-### 6. Serving images, CSS files as static resources.
-And this is the tree of the directories and files that I have got:
-.
-├───static
-│   ├───css
-│   │   └───styles.css
-│   └───images
-│       └───space.gif
-├───templates
-│   └───index.html
-├───app.py
-└───README.md
-### 7. Serving profile page at '/profile' and redirect default route to it.
-I have used such functions as `redirect` and `url_for` to redirect default route to page '/profile'. This is how I have made it:
-```
-@app.route('/profile')
-def index():
-    return render_template("index.html")
+This web application focuses on implementing a secure authentication system with user data stored in MongoDB. It includes both basic and advanced features to ensure a robust user authentication experience.
 
-@app.route('/')
-def redirect_to_profile():
-    return redirect(url_for('index'))
-```
+Basic Features
+1. Authentication Feature
+1.1 Listen on localhost:5000
+The application is set up to run locally on http://localhost:5000.
 
+1.2 Render Authentication Form
+A clean and user-friendly authentication form is provided at the landing page http://localhost:5000/, allowing users to input their credentials.
 
+1.3 Redirect to Profile Page on Successful Authentication
+Upon successful authentication, users are seamlessly redirected to their personalized profile page.
 
+1.4 Profile Page for Authenticated Users Only
+Accessing http://localhost:5000/profile displays the user's profile. Unauthorized access leads users back to the authentication form.
 
+1.5 User Credentials Stored in MongoDB
+Usernames and hashed passwords are securely stored in a MongoDB database.
+
+Advanced Features
+2. Additional Features
+2.1 Create New Account and Display Profile
+Users can create new accounts, and each user's profile is dynamically displayed with data specific to their account.
+
+2.2 Password Hashing, Logout, and Password Change
+Enhanced security measures include password hashing, logout functionality, and the ability for users to change their passwords.
+
+2.3 Update Profile Picture
+Users, including new ones, can upload and update their profile pictures. New users are assigned a default profile picture.
+
+2.4 Update Profile Information
+A user-friendly interface allows users to update their profile information, ensuring that changes persist in the database.
